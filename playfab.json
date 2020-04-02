@@ -516,6 +516,20 @@
             ]
         },
         {
+            "id": "PlayFabPostmanSDK-insightsFolder",
+            "name": "insights",
+            "description": "PlayFab insights API.",
+            "order": [
+
+                "insights-GetDetails",
+                "insights-GetLimits",
+                "insights-GetOperationStatus",
+                "insights-GetPendingOperations",
+                "insights-SetPerformance",
+                "insights-SetStorageRetention"
+            ]
+        },
+        {
             "id": "PlayFabPostmanSDK-groupsFolder",
             "name": "groups",
             "description": "PlayFab groups API.",
@@ -6778,6 +6792,91 @@
             "currentHelper": "normal",
             "folder": "PlayFabPostmanSDK-experimentationFolder",
             "rawModeData": "{\n  \"Name\": \"BackgroundColor Experiment\",\n  \"Id\": \"B9A90E90-A009-4254-80A4-46B5933E9D26\",\n  \"Description\": \"Tests whether a green background color increases revenue\",\n  \"StartDate\": \"2019-10-25T20:37:00Z\",\n  \"Duration\": 14,\n  \"SegmentId\": \"0\",\n  \"Variants\": [\n    {\n      \"Name\": \"Control\",\n      \"Description\": \"Control variant\",\n      \"TrafficPercentage\": 10,\n      \"Variables\": [\n        {\n          \"Name\": \"BackgroundColor\",\n          \"Value\": \"White\"\n        }\n      ],\n      \"IsControl\": true\n    },\n    {\n      \"Name\": \"Treatment\",\n      \"Description\": \"Treatment variant\",\n      \"TrafficPercentage\": 90,\n      \"Variables\": [\n        {\n          \"Name\": \"BackgroundColor\",\n          \"Value\": \"Green\"\n        }\n      ],\n      \"IsControl\": false\n    }\n  ],\n  \"ExperimentType\": \"Active\"\n}"
+        },
+
+        {
+            "id": "insights-GetDetails",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/GetDetails?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "GetDetails",
+            "description": "Gets the current values for the Insights performance and data storage retention, list of pending operations, and the performance and data storage retention limits.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/getdetails\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{}"
+        },
+        {
+            "id": "insights-GetLimits",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/GetLimits?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "GetLimits",
+            "description": "Retrieves the range of allowed values for performance and data storage retention values as well as the submeter details for each performance level.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/getlimits\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{}"
+        },
+        {
+            "id": "insights-GetOperationStatus",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/GetOperationStatus?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "GetOperationStatus",
+            "description": "Gets the status of a SetPerformance or SetStorageRetention operation.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/getoperationstatus\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\n**The body of this api-call should be proper json-format.  The api-body accepts the following case-sensitive parameters:**\n\n\"OperationId\": Id of the Insights operation.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{\n  \"OperationId\": \"3ee468c4-ad09-4bb1-bccf-209ef5abfb96\"\n}"
+        },
+        {
+            "id": "insights-GetPendingOperations",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/GetPendingOperations?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "GetPendingOperations",
+            "description": "Gets a list of pending SetPerformance and/or SetStorageRetention operations for the title.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/getpendingoperations\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\n**The body of this api-call should be proper json-format.  The api-body accepts the following case-sensitive parameters:**\n\n\"OperationType\": The type of pending operations requested, or blank for all operation types.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{\n  \"OperationType\": \"SetPerformance\"\n}"
+        },
+        {
+            "id": "insights-SetPerformance",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/SetPerformance?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "SetPerformance",
+            "description": "Sets the Insights performance level value for the title.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/setperformance\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\n**The body of this api-call should be proper json-format.  The api-body accepts the following case-sensitive parameters:**\n\n\"PerformanceLevel\": The Insights performance level to apply to the title.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{\n  \"PerformanceLevel\": 3\n}"
+        },
+        {
+            "id": "insights-SetStorageRetention",
+            "headers": "X-PlayFabSDK: PostmanCollection-0.98.200330\nContent-Type: application/json\nX-EntityToken: {{EntityToken}}\n",
+            "url": "https://{{TitleId}}.playfabapi.com/Insights/SetStorageRetention?sdk=PostmanCollection-0.98.200330",
+            "method": "POST",
+            "collectionId": "PlayFabPostmanSDK",
+            "dataMode": "raw",
+            "name": "SetStorageRetention",
+            "description": "Sets the Insights data storage retention days value for the title.\n\nApi Documentation: https://docs.microsoft.com/rest/api/playfab/insights/analytics/setstorageretention\n\n**The following case-sensitive environment variables are required for this call:**\n\n\"TitleId\" - The Title Id of your game, available in the Game Manager (https://developer.playfab.com)\n\n\"EntityToken\" - The string returned as \"EntityToken.EntityToken\" in response to any Login method.\n\n**The body of this api-call should be proper json-format.  The api-body accepts the following case-sensitive parameters:**\n\n\"RetentionDays\": The Insights data storage retention value (in days) to apply to the title.\n\nTo set up an Environment, click the text next to the eye icon up top in Postman (it should say \"No environment\", if this is your first time using Postman). Select \"Manage environments\", then \"Add\". Type a name for your environment where it says \"New environment\", then enter each variable name above as the \"Key\", with the value as defined for each above.",
+            "descriptionFormat": "html",
+            "currentHelper": "normal",
+            "folder": "PlayFabPostmanSDK-insightsFolder",
+            "rawModeData": "{\n  \"RetentionDays\": 30\n}"
         },
 
         {
